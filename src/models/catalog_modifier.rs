@@ -2,7 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
-use super::Money;
+use super::{ModifierLocationOverrides, Money};
 
 /// A modifier applicable to items at the time of sale.
 #[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
@@ -23,4 +23,6 @@ pub struct CatalogModifier {
     pub image_ids: Option<Vec<String>>,
     /// If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`.
     pub on_by_default: Option<bool>,
+    /// Per-location price overrides.
+    pub location_overrides: Option<Vec<ModifierLocationOverrides>>,
 }

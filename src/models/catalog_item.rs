@@ -3,8 +3,8 @@
 use serde::{Deserialize, Serialize};
 
 use super::{
-    enums::CatalogItemProductType, CatalogItemModifierListInfo, CatalogItemOptionForItem,
-    CatalogObject,
+    enums::CatalogItemProductType, CatalogItemCategory, CatalogItemModifierListInfo,
+    CatalogItemOptionForItem, CatalogObject,
 };
 
 /// A [CatalogObject] instance of the `ITEM` type, also referred to as an item, in the catalog.
@@ -32,6 +32,8 @@ pub struct CatalogItem {
     pub available_electronically: Option<bool>,
     /// The ID of the item's category, if any.
     pub category_id: Option<String>,
+    /// The ID of the item's category, if any.
+    pub categories: Option<Vec<CatalogItemCategory>>, // Added 2023-12-13
     /// A set of IDs indicating the taxes enabled for this item. When updating an item, any taxes
     /// listed here will be added to the item. Taxes may also be added to or deleted from an item
     /// using `UpdateItemTaxes`.
