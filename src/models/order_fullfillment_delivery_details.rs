@@ -1,5 +1,6 @@
 //! Model struct for OrderFulfillmentShipmentDetails type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -7,7 +8,7 @@ use super::{
 };
 
 /// Describes delivery details of an order fulfillment.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderFulfillmentDeliveryDetails {
     /// Information about the person meant to receive this shipment fulfillment.
     pub recipient: Option<OrderFulfillmentRecipient>,

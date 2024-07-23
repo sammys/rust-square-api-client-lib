@@ -1,11 +1,12 @@
 //! Response struct for the Batch Retrieve Catalog Objects API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, CatalogObject};
 
 /// This is a model struct for BatchRetrieveCatalogObjectsResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct BatchRetrieveCatalogObjectsResponse {
     /// A list of [CatalogObject]s returned.
     pub objects: Option<Vec<CatalogObject>>,

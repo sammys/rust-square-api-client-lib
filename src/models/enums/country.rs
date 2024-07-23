@@ -1,12 +1,13 @@
 //! Model for Country enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the country associated with another entity, such as a business.
 ///
 /// Values are in
 /// [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum Country {
     /// Unknown

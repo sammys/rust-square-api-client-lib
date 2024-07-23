@@ -1,9 +1,10 @@
 //! Model for Product enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the Square product used to generate an inventory change.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum Product {
     /// Square Point of Sale application.

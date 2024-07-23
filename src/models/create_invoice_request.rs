@@ -1,11 +1,12 @@
 //! Request body struct for the Create Invoice API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::Invoice;
 
 /// This is a model struct for CreateInvoiceRequest type
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateInvoiceRequest {
     /// The invoice to create.
     pub invoice: Invoice,

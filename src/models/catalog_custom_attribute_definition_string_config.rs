@@ -1,9 +1,10 @@
 //! Model struct for CatalogCustomAttributeDefinitionStringConfig type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Configuration associated with Custom Attribute Definitions of type `STRING`.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogCustomAttributeDefinitionStringConfig {
     /// If true, each Custom Attribute instance associated with this Custom Attribute Definition
     /// must have a unique value within the seller's catalog. For example, this may be used for a

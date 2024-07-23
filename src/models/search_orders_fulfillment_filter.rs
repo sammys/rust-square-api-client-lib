@@ -1,11 +1,12 @@
 //! Model struct for SearchOrdersFulfillmentFilter type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::enums::{OrderFulfillmentState, OrderFulfillmentType};
 
 /// Filter based on [order fulfillment](OrderFulfillment) information
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchOrdersFulfillmentFilter {
     /// A list of [fulfillment types](OrderFulfillmentType) to filter for. The list returns orders
     /// if any of its fulfillments match any of the fulfillment types listed in this field.

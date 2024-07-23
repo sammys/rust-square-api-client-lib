@@ -1,5 +1,6 @@
 //! Model struct for SearchCustomersDateTimeFilter type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::TimeRange;
@@ -12,7 +13,7 @@ use super::TimeRange;
 ///
 /// For each time range, the start time and end time are inclusive. If the end time is absent, it
 /// defaults to the time of the first request for the cursor.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchCustomersDateTimeFilter {
     /// The time range for filtering on the `created_at` timestamp. If you use this value, you must
     /// set the `sort_field` in the `CustomersSearchSort` object to `CREATED_AT`.

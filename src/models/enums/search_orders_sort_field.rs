@@ -1,9 +1,10 @@
 //! Model for SearchOrdersSortField enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Reserved for API integrations that lack the ability to specify a real measurement unit.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum SearchOrdersSortField {
     /// The time when the order was created. If you are also filtering for a time range in this

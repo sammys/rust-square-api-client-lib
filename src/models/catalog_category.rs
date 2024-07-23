@@ -1,9 +1,10 @@
 //! Model struct for CatalogCategory type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// A category to which a `CatalogItem` instance belongs.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogCategory {
     /// The category name. This is a searchable attribute for use in applicable query filters, and
     /// its value length is of Unicode code points.

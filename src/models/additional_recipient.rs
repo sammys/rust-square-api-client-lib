@@ -1,12 +1,13 @@
 //! Model struct for AdditionalRecipient type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
 
 /// Represents an additional recipient (other than the merchant) receiving a portion of this tender.
 #[deprecated]
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct AdditionalRecipient {
     /// **Required** The location ID for a recipient (other than the merchant) receiving a portion
     /// of this tender.

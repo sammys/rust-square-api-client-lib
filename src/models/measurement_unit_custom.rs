@@ -1,9 +1,10 @@
 //! Model struct for MeasurementUnitCustom type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// The information needed to define a custom unit, provided by the seller.
-#[derive(Clone, Debug, Default, Serialize, Eq, PartialEq, Deserialize)]
+#[derive(Clone, Debug, Default, Serialize, Eq, Hydrate, PartialEq, Reconcile, Deserialize)]
 pub struct MeasurementUnitCustom {
     /// The name of the custom unit, for example "bushel".
     pub name: String,

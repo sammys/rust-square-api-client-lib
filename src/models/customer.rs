@@ -1,5 +1,6 @@
 //! Model struct for Customer type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -7,7 +8,7 @@ use super::{
 };
 
 /// Represents a Square customer profile in the Customer Directory of a Square seller.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Customer {
     /// A unique Square-assigned ID for the customer profile. If you need this ID for an API
     /// request, use the ID returned when you created the customer profile or call the

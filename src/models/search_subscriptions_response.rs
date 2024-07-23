@@ -1,11 +1,12 @@
 //! Response body struct for the Search Subscripitons API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Subscription};
 
 /// This is a model struct for SearchSubscriptionsResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct SearchSubscriptionsResponse {
     /// Errors encountered during the request.
     pub errors: Option<Vec<Error>>,

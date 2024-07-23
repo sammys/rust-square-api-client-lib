@@ -1,10 +1,11 @@
 //! Model struct for CatalogQueryRange type.
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// The query filter to return the search result whose named attribute values fall between the
 /// specified range.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogQueryRange {
     /// The name of the attribute to be searched.
     ///

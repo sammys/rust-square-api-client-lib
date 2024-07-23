@@ -1,9 +1,10 @@
 //! Request struct for the Update Item Taxes API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model struct for UpdateItemTaxesRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct UpdateItemTaxesRequest {
     /// IDs for the CatalogItems associated with the CatalogTax objects being updated. No more than
     /// 1,000 IDs may be provided.

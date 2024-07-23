@@ -1,10 +1,11 @@
 //! Model struct for CatalogItemOptionValue type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// An enumerated value that can link a `CatalogItemVariation` to an item option as one of its item
 /// option values.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogItemOptionValue {
     /// Unique ID of the associated item option.
     pub item_option_id: Option<String>,

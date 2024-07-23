@@ -1,9 +1,10 @@
 //! Model struct for CatalogInfoResponseLimits type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 /// Limits that apply to the Catalog Info API.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct CatalogInfoResponseLimits {
     /// The maximum number of objects that may appear within a single batch in a
     /// `/v2/catalog/batch-upsert` request.

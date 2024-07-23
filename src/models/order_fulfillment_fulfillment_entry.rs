@@ -2,6 +2,7 @@
 
 use std::collections::HashMap;
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// This is a model struct for OrderFulfillmentFulfillmentEntry type.
@@ -10,7 +11,7 @@ use serde::{Deserialize, Serialize};
 ///
 /// Each entry must reference a valid `uid` for an order line item in the `line_item_uid` field, as
 /// well as a `quantity` to fulfill.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderFulfillmentFulfillmentEntry {
     /// A unique ID that identifies the fulfillment entry only within this order.
     pub uid: Option<String>,

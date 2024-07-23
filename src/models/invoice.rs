@@ -1,5 +1,6 @@
 //! Model struct for Invoice type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -12,7 +13,7 @@ use super::{
 ///
 /// You use the Invoices API to create and manage invoices. For more information, see [Invoices API
 /// Overview](https://developer.squareup.com/docs/invoices-api/overview).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Invoice {
     /// **Read only** The Square-assigned ID of the invoice.
     pub id: Option<String>,

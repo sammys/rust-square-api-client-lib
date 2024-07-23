@@ -1,11 +1,12 @@
 //! Model struct for ProcessingFee type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::ProcessingFeeType, DateTime, Money};
 
 /// Represents the Square processing fee.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct ProcessingFee {
     /// The timestamp of when the fee takes effect.
     pub effective_at: Option<DateTime>,

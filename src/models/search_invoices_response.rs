@@ -1,11 +1,12 @@
 //! Response struct for the Search Invoices API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Invoice};
 
 /// This is a model struct for SearchInvoicesResponse type
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct SearchInvoicesResponse {
     /// The list of invoices returned by the search.
     pub invoices: Option<Vec<Invoice>>,

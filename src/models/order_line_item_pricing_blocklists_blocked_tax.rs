@@ -1,11 +1,12 @@
 //! Model struct for OrderLineItemPricingBlocklistsBlockedTax type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// A tax to block from applying to a line item.
 ///
 /// The tax must be identified by either `tax_uid` or `tax_catalog_object_id`, but not both.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderLineItemPricingBlocklistsBlockedTax {
     /// A unique ID of the `BlockedTax` within the order.
     pub uid: Option<String>,

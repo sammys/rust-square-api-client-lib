@@ -2,12 +2,13 @@
 
 use std::collections::HashMap;
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
 
 /// A [CatalogModifier].
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderLineItemModifier {
     /// A unique ID that identifies the modifier only within this order.
     pub uid: Option<String>,

@@ -1,11 +1,12 @@
 //! Response struct for the Retrieve Inventory Count  API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, InventoryCount};
 
 /// This is a model struct for RetrieveInventoryCountResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct RetrieveInventoryCountResponse {
     /// The current calculated inventory counts for the requested object and locations.
     pub counts: Option<Vec<InventoryCount>>,

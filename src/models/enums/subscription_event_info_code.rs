@@ -1,9 +1,10 @@
 //! Model for SubscriptionEventInfoCode enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Supported info codes of a subscription event.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum SubscriptionEventInfoCode {
     /// The location is not active.

@@ -1,11 +1,12 @@
 //! Model struct for TeamMember type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::TeamMemberStatus, DateTime, TeamMemberAssignedLocations};
 
 /// A record representing an individual team member for a business.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct TeamMember {
     /// **Read only** The unique ID for the team member.
     pub id: Option<String>,

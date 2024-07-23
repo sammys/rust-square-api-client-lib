@@ -1,9 +1,10 @@
 //! Model for InvoiceDeliveryMethod enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates how Square delivers the [Invoice] to the customer.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InvoiceDeliveryMethod {
     /// Directs Square to send invoices, reminders, and receipts to the customer using email.

@@ -1,5 +1,6 @@
 //! Model struct for ExternalPaymentDetails type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::ExternalPaymentType, Money};
@@ -8,7 +9,7 @@ use super::{enums::ExternalPaymentType, Money};
 ///
 /// Contains only non-confidential information. For more information, see [Take External
 /// Payments](https://developer.squareup.com/docs/payments-api/take-payments/external-payments).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct ExternalPaymentDetails {
     /// The type of external payment the seller received.
     pub r#type: Option<ExternalPaymentType>,

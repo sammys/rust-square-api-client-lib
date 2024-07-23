@@ -1,5 +1,6 @@
 //! Model struct for Subscription type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -11,7 +12,7 @@ use super::{
 ///
 /// For an overview of the `Subscription` type, see [Subscription
 /// object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Subscription {
     /// **Read only** The Square-assigned ID of the subscription.
     ///

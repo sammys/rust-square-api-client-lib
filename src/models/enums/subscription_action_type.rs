@@ -1,9 +1,10 @@
 //! Model for SubscriptionActionType enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Supported types of an action as a pending change to a subscription.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum SubscriptionActionType {
     /// The action to execute a scheduled cancellation of a subscription.

@@ -1,5 +1,6 @@
 //! Model struct for SearchOrdersSort type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::enums::{SearchOrdersSortField, SortOrder};
@@ -7,7 +8,7 @@ use super::enums::{SearchOrdersSortField, SortOrder};
 /// Sorting criteria for a `SearchOrders` request.
 ///
 /// Results can only be sorted by a timestamp field.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchOrdersSort {
     /// The field to sort by.
     ///

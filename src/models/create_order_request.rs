@@ -1,11 +1,12 @@
 //! Model struct for CreateOrderRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::Order;
 
 /// This is a model struct for CreateOrderRequest type
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateOrderRequest {
     /// The order to create. If this field is set, the only other top-level field that can be set is
     /// the `idempotency_key`.

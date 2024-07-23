@@ -1,11 +1,12 @@
 //! Model struct for GiftCardActivityRedeem type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::GiftCardActivityRedeemStatus, Money};
 
 /// Represents details about a `REDEEM` [gift card activity type](GiftCardActivityType).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct GiftCardActivityRedeem {
     /// The amount deducted from the gift card for the redemption. This value is a positive integer.
     ///

@@ -1,11 +1,12 @@
 //! Response body struct for the List Subscription Events API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, SubscriptionEvent};
 
 /// This is a model struct for ListSubscriptionEventsResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListSubscriptionEventsResponse {
     /// Errors encountered during the request.
     pub errors: Option<Vec<Error>>,

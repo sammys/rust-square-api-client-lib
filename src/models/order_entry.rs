@@ -1,10 +1,11 @@
 //! Model struct for OrderEntry type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 /// A lightweight description of an [order](Order) that is returned when `returned_entries` is
 /// `true` on a [SearchOrdersRequest].
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct OrderEntry {
     /// The ID of the order.
     pub order_id: String,

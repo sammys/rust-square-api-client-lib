@@ -2,12 +2,13 @@
 
 use std::collections::HashMap;
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, UpdateTeamMemberResponse};
 
 /// This is a model struct for BulkUpdateTeamMembersResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct BulkUpdateTeamMembersResponse {
     /// The successfully updated `TeamMember` objects. Each key is the `team_member_id` that maps
     /// to the `UpdateTeamMemberRequest`.

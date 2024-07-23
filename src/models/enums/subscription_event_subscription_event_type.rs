@@ -1,9 +1,10 @@
 //! Model for SubscriptionEventSubscriptionEventType enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Supported types of an event occurred to a subscription.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum SubscriptionEventSubscriptionEventType {
     /// The subscription was started.

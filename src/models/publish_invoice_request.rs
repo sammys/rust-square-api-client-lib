@@ -1,9 +1,10 @@
 //! Request body struct for the Publish Invoice API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model struct for PublishInvoiceRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct PublishInvoiceRequest {
     /// The version of the [Invoice] to publish. This must match the current version of the invoice;
     /// otherwise, the request is rejected.

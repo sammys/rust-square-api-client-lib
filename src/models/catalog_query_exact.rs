@@ -1,10 +1,11 @@
 //! Model struct for CatalogQueryExact type.
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// The query filter to return the search result by exact match of the specified attribute name and
 /// value.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogQueryExact {
     /// The name of the attribute to be searched. Matching of the attribute name is exact.
     ///

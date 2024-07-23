@@ -1,9 +1,10 @@
 //! Model struct for CustomerPreferences type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Represents communication preferences for the customer profile.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CustomerPreferences {
     /// Indicates whether the customer has unsubscribed from marketing campaign emails. A value of
     /// `true` means that the customer chose to opt out of email marketing from the current Square

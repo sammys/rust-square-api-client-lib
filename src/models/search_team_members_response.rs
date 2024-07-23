@@ -1,11 +1,12 @@
 //! Response body struct for the Search Team Members API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, TeamMember};
 
 /// This is a model struct for SearchTeamMembersResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct SearchTeamMembersResponse {
     /// The filtered list of `TeamMember` objects.
     pub team_members: Option<Vec<TeamMember>>,

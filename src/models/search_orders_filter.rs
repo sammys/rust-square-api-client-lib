@@ -1,5 +1,6 @@
 //! Model struct for SearchOrdersFilter type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::{
@@ -10,7 +11,7 @@ use super::{
 /// Filtering criteria to use for a `SearchOrders` request.
 ///
 /// Multiple filters are ANDed together.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchOrdersFilter {
     /// Filter by [OrderState]
     pub state_filter: Option<SearchOrdersStateFilter>,

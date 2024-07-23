@@ -1,5 +1,6 @@
 //! Model struct for Error type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use crate::models::enums::{ErrorCategory, ErrorCode};
@@ -8,7 +9,7 @@ use crate::models::enums::{ErrorCategory, ErrorCode};
 ///
 /// See [Handling errors](https://developer.squareup.com/docs/build-basics/handling-errors) for more
 /// information.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Error {
     /// Indicates which high-level category of error has occurred during a request to the Connect
     /// API.

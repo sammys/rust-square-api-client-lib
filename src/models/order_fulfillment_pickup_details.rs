@@ -1,5 +1,6 @@
 //! Model struct for OrderFulfillmentPickupDetails type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -10,7 +11,7 @@ use super::{
 /// This is a model struct for OrderFulfillmentPickupDetails type.
 ///
 /// Contains details necessary to fulfill a pickup order.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderFulfillmentPickupDetails {
     /// Information about the person meant to pick up this fulfillment from a physical location.
     pub recipient: Option<OrderFulfillmentRecipient>,

@@ -1,9 +1,10 @@
 //! Model for InvoiceSortField enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// Indicates the status of an invoice.
-#[derive(Clone, Debug, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InvoiceSortField {
     /// The field works as follows:

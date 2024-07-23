@@ -1,11 +1,12 @@
 //! Response body struct for the Swap Plan API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Subscription, SubscriptionAction};
 
 /// This is a model struct for the SwapPlanResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct SwapPlanResponse {
     /// Errors encountered during the request.
     pub errors: Option<Vec<Error>>,

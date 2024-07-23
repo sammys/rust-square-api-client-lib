@@ -1,9 +1,10 @@
 //! Model struct for BatchRetrieveOrdersRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model class for BatchRetrieveOrdersRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct BatchRetrieveOrdersRequest {
     /// The ID of the location for these orders. This field is optional: omit it to retrieve orders
     /// within the scope of the current authorization's merchant ID.

@@ -1,11 +1,12 @@
 //! Model struct for RefundPaymentRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::Money;
 
 /// This is a model struct for RefundPaymentRequest type
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct RefundPaymentRequest {
     /// A unique string that identifies this `RefundPayment` request. The key can be any valid
     /// string but must be unique for every `RefundPayment` request.

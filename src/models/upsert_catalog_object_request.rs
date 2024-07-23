@@ -1,11 +1,12 @@
 //! Request struct for the Upsert Catalog Object API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::CatalogObject;
 
 /// This is a model struct for UpsertCatalogObjectRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct UpsertCatalogObjectRequest {
     /// A value you specify that uniquely identifies this request among all your requests. A common
     /// way to create a valid idempotency key is to use a Universally unique identifier (UUID).

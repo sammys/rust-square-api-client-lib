@@ -1,12 +1,13 @@
 //! Model struct for CatalogQuickAmountsSettings type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::CatalogQuickAmountsSettingsOption, CatalogQuickAmount};
 
 /// A parent Catalog Object model represents a set of Quick Amounts and the settings control the
 /// amounts.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogQuickAmountsSettings {
     /// Represents the option seller currently uses on Quick Amounts.
     pub option: CatalogQuickAmountsSettingsOption,

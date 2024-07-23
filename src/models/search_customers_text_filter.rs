@@ -1,9 +1,10 @@
 //! Model struct for SearchCustomerTextFilter type
 
 /// This is a model struct for SearchCustomerTextFilter type
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchCustomersTextFilter {
     /// For exact matching, this filter causes the search to return customer profiles
     /// whose field value are identical to the value provided in the query.

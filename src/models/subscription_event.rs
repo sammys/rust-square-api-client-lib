@@ -1,11 +1,12 @@
 //! Model struct for SubscriptionEvent type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::SubscriptionEventSubscriptionEventType, SubscriptionEventInfo};
 
 /// Describes changes to a subscription and the subscription status.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SubscriptionEvent {
     /// The ID of the subscription event.
     pub id: String,

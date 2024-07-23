@@ -1,9 +1,10 @@
 //! Model struct for TaxIds type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 ///  Identifiers for the location used by various governments for tax purposes.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct TaxIds {
     /// The NIF (Numero de Identificacion Fiscal) number is a nine-character tax identifier used in
     /// Spain. If it is present, it has been validated. For example, `73628495A`.

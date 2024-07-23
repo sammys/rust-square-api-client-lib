@@ -1,11 +1,12 @@
 //! Model struct for WageSetting type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{DateTime, JobAssignment};
 
 /// An object representing a team member's wage information.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct WageSetting {
     /// The unique ID of the `TeamMember` whom this wage setting describes.
     pub team_member_id: Option<String>,

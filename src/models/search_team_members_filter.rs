@@ -1,5 +1,6 @@
 //! Model struct for SearchTeamMembersFilter type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::enums::TeamMemberStatus;
@@ -19,7 +20,7 @@ use super::enums::TeamMemberStatus;
 /// };
 /// ```
 /// returns only active team members assigned to either location "A" or "B".
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchTeamMembersFilter {
     /// When present, filters by team members assigned to the specified locations. When empty,
     /// includes team members assigned to any location.

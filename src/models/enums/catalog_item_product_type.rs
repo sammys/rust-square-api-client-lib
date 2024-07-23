@@ -1,11 +1,12 @@
 //! Model for CatalogItemProductType enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// The type of a CatalogItem.
 ///
 /// Connect V2 only allows the creation of `REGULAR` or `APPOINTMENTS_SERVICE` items.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum CatalogItemProductType {
     /// An ordinary item.

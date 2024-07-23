@@ -1,11 +1,12 @@
 //! Model struct for JobAssignment type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::JobAssignmentPayType, Money};
 
 /// An object describing a job that a team member is assigned to.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct JobAssignment {
     /// The title of the job.
     ///

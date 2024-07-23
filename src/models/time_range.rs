@@ -1,5 +1,6 @@
 //! Model struct for TimeRange type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::DateTime;
@@ -9,7 +10,7 @@ use super::DateTime;
 /// Time ranges are customized to be inclusive or exclusive based on the needs of a particular
 /// endpoint. Refer to the relevant endpoint-specific documentation to determine how time ranges are
 /// handled.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct TimeRange {
     /// A datetime value indicating when the time range starts.
     pub start_at: Option<DateTime>,

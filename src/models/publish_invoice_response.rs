@@ -1,11 +1,12 @@
 //! Response body struct for the Publish Invoice API.
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Invoice};
 
 /// This is a model struct for PublishInvoiceResponse type
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct PublishInvoiceResponse {
     /// The published invoice.
     pub invoice: Option<Invoice>,

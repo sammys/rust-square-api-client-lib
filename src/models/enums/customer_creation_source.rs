@@ -1,9 +1,10 @@
 //! Model for CustomerCreationSource enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the method used to create the customer profile.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum CustomerCreationSource {
     /// The default creation source. This source is typically used for backward/future compatibility

@@ -1,5 +1,6 @@
 //! Model struct for MeasurementUnit type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -14,7 +15,7 @@ use super::{
 ///
 /// Exactly one of the following fields are required: `custom_unit`, `area_unit`, `length_unit`,
 /// `volume_unit`, and `weight_unit`.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct MeasurementUnit {
     /// A custom unit of measurement defined by the seller using the Point of Sale app or ad-hoc as
     /// an order line item.

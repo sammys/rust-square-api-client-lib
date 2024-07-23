@@ -1,10 +1,11 @@
 //! Model struct for SearchCustomerCreationSourceFilter type
 
 use crate::models::enums::{CustomerCreationSource, CustomerCreationSourceRule};
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// Filter based on [order fulfillment](OrderFulfillment) information
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchCustomerCreationSourceFilter {
     /// A list of [fulfillment types](OrderFulfillmentType) to filter for. The list returns orders
     /// if any of its fulfillments match any of the fulfillment types listed in this field.

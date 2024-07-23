@@ -1,12 +1,13 @@
 //! Response struct for the Create Card API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::errors::Error;
 use super::Card;
 
 /// This is a model struct for CreateCardResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct CreateCardResponse {
     /// Any errors that occurred during the request.
     pub errors: Option<Vec<Error>>,

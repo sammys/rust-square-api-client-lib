@@ -1,5 +1,6 @@
 //! Model struct for TenderCardDetails type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -8,7 +9,7 @@ use super::{
 };
 
 /// Represents additional details of a tender with type `CARD` or `SQUARE_GIFT_CARD`
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct TenderCardDetails {
     /// The credit card payment's current state (such as `AUTHORIZED` or `CAPTURED`). See
     /// [TenderCardDetailsStatus] for possible values.

@@ -1,5 +1,6 @@
 //! Model struct for InvoiceRecipient type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{Address, InvoiceRecipientTaxIds};
@@ -13,7 +14,7 @@ use super::{Address, InvoiceRecipientTaxIds};
 /// profile and populates the remaining `InvoiceRecipient` fields. You cannot update these fields
 /// after the invoice is published. Square updates the customer ID in response to a merge operation,
 /// but does not update other fields.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoiceRecipient {
     /// The ID of the customer. This is the customer profile ID that you provide when creating a
     /// draft invoice.

@@ -1,12 +1,13 @@
 //! Model struct for OrderQuantityUnit type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::MeasurementUnit;
 
 /// Contains the measurement unit for a quantity and a precision that specifies the number of digits
 /// after the decimal point for decimal quantities.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderQuantityUnit {
     /// A [MeasurementUnit] that represents the unit of measure for the quantity.
     pub measurement_unit: Option<MeasurementUnit>,

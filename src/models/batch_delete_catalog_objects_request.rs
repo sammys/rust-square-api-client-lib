@@ -1,9 +1,10 @@
 //! Request struct for the Batch Delete Catalog Objects API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model class for BatchDeleteCatalogObjectsRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct BatchDeleteCatalogObjectsRequest {
     pub location_id: Option<String>,
     /// The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects in the

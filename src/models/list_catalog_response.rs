@@ -1,11 +1,12 @@
 //! Response struct for the List Catalog API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, CatalogObject};
 
 /// This is a model struct for ListCatalogResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListCatalogResponse {
     /// Information about errors encountered during the request.
     pub errors: Option<Vec<Error>>,

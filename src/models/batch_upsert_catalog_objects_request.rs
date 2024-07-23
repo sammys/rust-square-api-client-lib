@@ -1,11 +1,12 @@
 //! Request struct for the Batch Upsert Catalog Objects API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::CatalogObjectBatch;
 
 /// This is a model class for BatchUpsertCatalogObjectsRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct BatchUpsertCatalogObjectsRequest {
     /// A value you specify that uniquely identifies this request among all your requests. A common
     /// way to create a valid idempotency key is to use a Universally unique identifier (UUID).

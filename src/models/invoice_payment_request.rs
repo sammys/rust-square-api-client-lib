@@ -1,5 +1,6 @@
 //! Model struct for InvoicePaymentRequest type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -15,7 +16,7 @@ use super::{
 ///
 /// Adding `INSTALLMENT` payment requests to an invoice requires an [Invoices Plus
 /// subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-subscription).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoicePaymentRequest {
     /// The payment method for an automatic payment.
     ///

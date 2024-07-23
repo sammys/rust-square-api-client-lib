@@ -1,5 +1,6 @@
 //! Model struct for Address type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::enums::Country;
@@ -8,7 +9,7 @@ use super::enums::Country;
 ///
 /// For more information, see [Working with
 /// Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Address {
     /// The first line of the address.
     ///

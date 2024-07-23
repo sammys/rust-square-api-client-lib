@@ -1,5 +1,6 @@
 //! Model struct for CatalogItemVariation type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -11,7 +12,7 @@ use super::{
 /// An item variation (i.e., product) in the Catalog object model.
 ///
 /// Each item may have a maximum of 250 item variations.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogItemVariation {
     /// The ID of the `CatalogItem` associated with this item variation.
     pub item_id: Option<String>,

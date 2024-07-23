@@ -1,11 +1,12 @@
 //! Model struct for SearchCustomersSort type
 
 use crate::models::enums::{SortCustomersField, SortOrder};
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 /// Sorting criteria for a `SearchCustomers` request.
 ///
 /// Results can only be sorted by a timestamp field.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchCustomersSort {
     /// The field to sort by.
     ///

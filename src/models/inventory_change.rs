@@ -1,5 +1,6 @@
 //! Model struct for InventoryChange type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -8,7 +9,7 @@ use super::{
 };
 
 /// Changes created for the request.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InventoryChange {
     /// Contains details about the inventory adjustment when type is ADJUSTMENT,
     /// and is unset for all other change types.

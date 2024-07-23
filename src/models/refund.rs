@@ -1,11 +1,12 @@
 //! Model struct for Refund type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::RefundStatus, AdditionalRecipient, DateTime, Money};
 
 /// Represents a refund processed for a Square transaction.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Refund {
     /// **Required** The refund's unique ID.
     pub id: String,

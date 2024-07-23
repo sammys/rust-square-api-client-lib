@@ -1,11 +1,12 @@
 //! Model struct for SearchOrdersResponse type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Order, OrderEntry};
 
 /// This is a model struct for SearchOrdersResponse type
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct SearchOrdersResponse {
     /// A list of [OrderEntries](OrderEntry) that fit the query conditions. The list is populated
     /// only if `return_entries` is set to `true` in the request.

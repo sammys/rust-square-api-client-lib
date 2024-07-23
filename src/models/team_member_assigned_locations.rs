@@ -1,11 +1,12 @@
 //! Model struct for TeamMemberAssignedLocations type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::enums::TeamMemberAssignedLocationsAssignmentType;
 
 /// A record representing an individual team member for a business.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct TeamMemberAssignedLocations {
     /// The current assignment type of the team member.
     pub assignment_type: Option<TeamMemberAssignedLocationsAssignmentType>,

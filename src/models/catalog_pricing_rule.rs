@@ -1,12 +1,13 @@
 //! Model struct for CatalogPricingRule type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::ExcludeStrategy, Money};
 
 /// Defines how discounts are automatically applied to a set of items that match the pricing rule
 /// during the active time period.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogPricingRule {
     /// User-defined name for the pricing rule. For example, "Buy one get one free" or "10% off".
     pub name: Option<String>,

@@ -1,9 +1,10 @@
 //! Model for RiskEvaluationRiskLevel enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// The risk level associated with a payment.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum RiskEvaluationRiskLevel {
     /// Indicates Square is still evaluating the payment.

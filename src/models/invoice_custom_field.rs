@@ -1,5 +1,6 @@
 //! Model struct for InvoiceCustomField type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::enums::InvoiceCustomFieldPlacement;
@@ -11,7 +12,7 @@ use super::enums::InvoiceCustomFieldPlacement;
 ///
 /// Adding custom fields to an invoice requires an [Invoices Plus
 /// subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-subscription).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoiceCustomField {
     pub label: String,
     pub placement: InvoiceCustomFieldPlacement,

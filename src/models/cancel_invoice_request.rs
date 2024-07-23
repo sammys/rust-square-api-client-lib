@@ -1,9 +1,10 @@
 //! Request body struct for the Cancel Invoice API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model struct for CancelInvoiceRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CancelInvoiceRequest {
     /// The version of the [Invoice] to cancel. If you do not know the version, you can call
     /// [GetInvoice](https://developer.squareup.com/reference/square/invoices-api/get-invoice) or

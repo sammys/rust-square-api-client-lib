@@ -1,9 +1,10 @@
 //! Model for JobAssignmentPayType enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Enumerates the possible pay types that a job can be assigned.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum JobAssignmentPayType {
     /// The job does not have a defined pay type.

@@ -1,10 +1,11 @@
 //! Model struct for CatalogStockConversion type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Represents the rule of conversion between a stockable [CatalogItemVariation] and a non-stockable
 /// sell-by or receive-by `CatalogItemVariation` that share the same underlying stock.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogStockConversion {
     /// References to the stockable [CatalogItemVariation] for this stock conversion. Selling,
     /// receiving or recounting the non-stockable `CatalogItemVariation` defined with a stock

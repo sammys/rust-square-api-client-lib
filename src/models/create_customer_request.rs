@@ -1,11 +1,12 @@
 //! Model struct for CreateCustomerRequest type
 
 /// This is a model struct for CreateCustomerRequest type
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::{Address, CustomerTaxIds};
 
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateCustomerRequest {
     /// The idempotency key for the request. For more information, see
     /// [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).

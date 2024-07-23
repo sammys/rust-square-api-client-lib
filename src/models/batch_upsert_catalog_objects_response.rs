@@ -1,11 +1,12 @@
 //! Response struct for the Batch Upsert Catalog Objects API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, CatalogIdMapping, CatalogObject, DateTime};
 
 /// This is a model struct for BatchUpsertCatalogObjectsResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct BatchUpsertCatalogObjectsResponse {
     /// The created successfully created CatalogObjects.
     pub objects: Option<Vec<CatalogObject>>,

@@ -1,10 +1,11 @@
 //! Model for CatalogCustomAttributeDefinitionAppVisibility enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Defines the visibility of a custom attribute to applications other than their creating
 /// application.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum CatalogCustomAttributeDefinitionAppVisibility {
     /// Other applications cannot read this custom attribute.

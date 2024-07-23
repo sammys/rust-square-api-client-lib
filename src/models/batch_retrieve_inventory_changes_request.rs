@@ -1,11 +1,12 @@
 //! Model struct for BatchRetrieveInventoryChangesRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::enums::{InventoryChangeType, InventoryState};
 
 /// This is a model struct for BatchRetrieveInventoryChangesRequest type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct BatchRetrieveInventoryChangesRequest {
     /// The filter to return results by CatalogObject ID. The filter is applicable only when set
     pub catalog_object_ids: Option<Vec<String>>,

@@ -1,5 +1,6 @@
 //! Model struct for OrderReturn type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -9,7 +10,7 @@ use super::{
 
 /// The set of line items, service charges, taxes, discounts, tips, and other items being returned
 /// in an order.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderReturn {
     /// A unique ID that identifies the return only within this order.
     pub uid: Option<String>,

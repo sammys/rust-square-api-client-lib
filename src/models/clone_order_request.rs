@@ -1,9 +1,10 @@
 //! Model struct for CloneOrderRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model struct for CloneOrderRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CloneOrderRequest {
     /// The ID of the order to clone.
     pub order_id: String,

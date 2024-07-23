@@ -1,12 +1,13 @@
 //! Model struct for CatalogMeasurementUnit type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::MeasurementUnit;
 
 /// Represents the unit used to measure a `CatalogItemVariation` and specifies the precision for
 /// decimal quantities.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogMeasurementUnit {
     /// Indicates the unit used to measure the quantity of a catalog item variation.
     pub measurement_unit: Option<MeasurementUnit>,

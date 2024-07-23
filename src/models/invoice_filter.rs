@@ -1,9 +1,10 @@
 //! Model struct for InvoiceFilter type.
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// Describes query filters to apply.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoiceFilter {
     /// Limits the search to the specified locations. A location is required. In the current
     /// implementation, only one location can be specified.

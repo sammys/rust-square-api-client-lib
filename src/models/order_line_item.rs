@@ -2,6 +2,7 @@
 
 use std::collections::HashMap;
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -13,7 +14,7 @@ use super::{
 ///
 /// Each line item describes a different product to purchase, with its own quantity and price
 /// details.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderLineItem {
     /// A unique ID that identifies the line item only within this order.
     pub uid: Option<String>,

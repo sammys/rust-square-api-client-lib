@@ -1,11 +1,12 @@
 //! Response struct for the List Invoices API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Invoice};
 
 /// This is a model struct for ListInvoicesResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListInvoicesResponse {
     /// The invoices retrieved.
     pub gift_cards: Option<Vec<Invoice>>,

@@ -1,12 +1,13 @@
 //! Model struct for GiftCardActivityUnlinkedActivityRefund type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
 
 /// Represents details about a `UNLINKED_ACTIVITY_REFUND`
 /// [gift card activity type](GiftCardActivityType).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct GiftCardActivityUnlinkedActivityRefund {
     /// The amount added to the gift card for the refund. This value is a positive integer.
     pub amount_money: Money,

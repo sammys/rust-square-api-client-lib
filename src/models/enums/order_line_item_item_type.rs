@@ -1,9 +1,10 @@
 //! Model for OrderLineItemItemType enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Represents the line item type.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum OrderLineItemItemType {
     /// Indicates that the line item is an itemized sale.

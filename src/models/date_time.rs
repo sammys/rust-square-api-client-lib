@@ -4,6 +4,7 @@ use std::fmt::{Debug, Display};
 
 use chrono::Utc;
 use log::error;
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::errors::ApiError;
@@ -14,9 +15,35 @@ use super::errors::ApiError;
 /// RFC3339 String and Unix Timestamp i64.
 ///
 /// Uses chrono library under the hood.
-#[derive(Clone, Eq, PartialEq)]
+#[derive(Clone, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct DateTime {
+    #[cfg(feature="automerge")]
+    #[autosurgeon(hydrate="hydrate_datetime",reconcile="reconcile_datetime")]
     inner: chrono::DateTime<Utc>,
+
+    #[cfg(not(feature="automerge"))]
+    inner: chrono::DateTime<Utc>,
+}
+
+#[cfg(feature="automerge")]
+fn hydrate_datetime<'a, D: autosurgeon::ReadDoc>(
+    doc: &D,
+    obj: &automerge::ObjId,
+    prop: autosurgeon::Prop<'a>,
+) -> Result<chrono::DateTime<Utc>, autosurgeon::HydrateError> {
+    let inner = i64::hydrate(doc, obj, prop)?;
+    // let inner = String::hydrate(doc, obj, prop)?;
+    chrono::DateTime::from_timestamp_micros(inner)
+        .ok_or_else(|| autosurgeon::HydrateError::unexpected(
+            "a valid i64 timestamp", format!("a DateTime<Utc> which failed to parse: {}", inner)
+        ))
+}
+
+#[cfg(feature="automerge")]
+fn reconcile_datetime<R: autosurgeon::Reconciler>(
+    datetime: &chrono::DateTime<Utc>, mut reconciler: R
+) -> Result<(), R::Error> {
+    reconciler.i64(datetime.timestamp_micros())
 }
 
 impl DateTime {

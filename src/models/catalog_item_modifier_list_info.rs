@@ -1,12 +1,13 @@
 //! Model struct for CatalogItemModifierListInfo type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::CatalogModifierOverride;
 
 /// Options to control the properties of a `CatalogModifierList` applied to a `CatalogItem`
 /// instance.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogItemModifierListInfo {
     pub modifier_list_id: String,
     pub modifier_overrides: Option<Vec<CatalogModifierOverride>>,

@@ -1,11 +1,12 @@
 //! Response struct for the List Customer Segments API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, CustomerSegment};
 
 /// This is a model struct for ListCustomerSegmentsResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListCustomerSegmentsResponse {
     /// Any errors that occurred during the request.
     pub errors: Option<Vec<Error>>,

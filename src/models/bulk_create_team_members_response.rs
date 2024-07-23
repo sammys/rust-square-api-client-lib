@@ -2,12 +2,13 @@
 
 use std::collections::HashMap;
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, CreateTeamMemberResponse};
 
 /// This is a model struct for BulkCreateTeamMembersResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct BulkCreateTeamMembersResponse {
     /// The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps
     /// to the `CreateTeamMemberRequest`.

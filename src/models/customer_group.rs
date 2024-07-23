@@ -1,5 +1,6 @@
 //! Model struct for CustomerGroup type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::DateTime;
@@ -8,7 +9,7 @@ use super::DateTime;
 ///
 /// Customer groups can be created, be modified, and have their membership defined using the
 /// Customers API or within the Customer Directory in the Square Seller Dashboard or Point of Sale.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CustomerGroup {
     /// **Read only** A unique Square-generated ID for the customer group.
     pub id: Option<String>,

@@ -1,9 +1,10 @@
 //! Model for OrderLineItemTaxType enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates how the tax is applied to the associated line item or order.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum OrderLineItemTaxType {
     /// Used for reporting only. The original transaction tax type is currently not supported by the

@@ -1,11 +1,12 @@
 //! Model struct for RetrieveCardResponse type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Card};
 
 /// This is a model struct for RetrieveCardResponse type
-#[derive(Clone, Debug, Deserialize, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Default, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct RetrieveCardResponse {
     /// Information on errors encountered during the request.
     pub errors: Option<Vec<Error>>,

@@ -5,8 +5,9 @@
 /// For example, email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
 /// version 2021-01-21. The corresponding `request_method` field is replaced by the
 /// `Invoice.delivery_method` and `InvoicePaymentRequest.automatic_payment_source` fields.
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InvoiceRequestMethod {
     /// Directs Square to send invoices, reminders, and receipts to the customer using email. Square

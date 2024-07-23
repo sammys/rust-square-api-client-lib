@@ -1,9 +1,10 @@
 //! Model for InventoryState enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// A type of state for the related quantity of items
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InventoryState {
     /// The related quantity of items are in a custom state. READ-ONLY: the Inventory API cannot

@@ -1,5 +1,6 @@
 //! Model struct for CatalogIdMapping type.
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 /// A mapping between a temporary client-supplied ID and a permanent server-generated ID.
@@ -11,7 +12,7 @@ use serde::Deserialize;
 ///
 /// After the request is submitted and the object created, a permanent server-generated ID is
 /// assigned to the new object. The permanent ID is unique across the Square catalog.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct CatalogIdMapping {
     /// The client-supplied temporary `#`-prefixed ID for a new `CatalogObject`.
     pub client_object_id: String,

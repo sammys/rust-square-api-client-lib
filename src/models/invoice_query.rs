@@ -1,11 +1,12 @@
 //! Model struct for InvoiceQuery type.
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::{InvoiceFilter, InvoiceSort};
 
 /// Describes query criteria for searching invoices.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoiceQuery {
     /// Query filters to apply in searching invoices. For more information, see [Search for
     /// invoices](https://developer.squareup.com/docs/invoices-api/retrieve-list-search-invoices#search-invoices).

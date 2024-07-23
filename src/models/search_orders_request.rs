@@ -1,11 +1,12 @@
 //! Model struct for SearchOrdersRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::SearchOrdersQuery;
 
 /// This is a model struct for SearchOrdersRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchOrdersRequest {
     pub location_ids: Option<Vec<String>>,
     /// A pagination cursor returned by a previous call to this endpoint. Provide this cursor to

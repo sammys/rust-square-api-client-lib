@@ -1,9 +1,10 @@
 //! Model for CatalogQuickAmountsSettingsOption enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Determines a seller's option on Quick Amounts feature.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum CatalogQuickAmountsSettingsOption {
     /// Option for seller to disable Quick Amounts.

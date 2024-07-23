@@ -1,11 +1,12 @@
 //! Response struct for the Batch Delete Catalog Objects API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, DateTime};
 
 /// This is a model struct for BatchDeleteCatalogObjectsResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct BatchDeleteCatalogObjectsResponse {
     /// The IDs of all CatalogObjects deleted by this request.
     pub deleted_object_ids: Option<Vec<String>>,

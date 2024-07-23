@@ -1,10 +1,11 @@
 //! Model for ExcludeStrategy enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates which products matched by a CatalogPricingRule will be excluded if the pricing rule
 /// uses an exclude set.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum ExcludeStrategy {
     /// The least expensive matched products are excluded from the pricing. If the pricing rule is

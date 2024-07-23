@@ -1,11 +1,12 @@
 //! Response struct for the List Customer Groups API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, CustomerGroup};
 
 /// This is a model struct for ListCustomerGroupsResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListCustomerGroupsResponse {
     /// A list of customer groups belonging to the current seller.
     pub groups: Option<Vec<CustomerGroup>>,

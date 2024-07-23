@@ -1,11 +1,12 @@
 //! Request struct for the Search Invoices API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::InvoiceQuery;
 
 /// This is a model struct for SearchInvoicesRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchInvoicesRequest {
     /// Describes the query criteria for searching invoices.
     pub query: InvoiceQuery,

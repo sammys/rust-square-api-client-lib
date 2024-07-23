@@ -1,11 +1,12 @@
 //! Response struct for the List Gift Cards API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, GiftCard};
 
 /// This is a model struct for ListGiftCardsResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListGiftCardsResponse {
     /// Any errors that occurred during the request.
     pub errors: Option<Vec<Error>>,

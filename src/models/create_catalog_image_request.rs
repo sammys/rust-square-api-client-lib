@@ -1,11 +1,12 @@
 //! Request struct for the Create Catalog Image API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::CatalogObject;
 
 /// This is a model class for CreateCatalogImageRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateCatalogImageRequest {
     /// A unique string that identifies this CreateCatalogImage request. Keys can be any valid
     /// string but must be unique for every CreateCatalogImage request.

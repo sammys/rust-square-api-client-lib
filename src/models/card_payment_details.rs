@@ -1,5 +1,6 @@
 //! Model struct for CardPaymentDetails type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -15,7 +16,7 @@ use super::{
 /// Reflects the current status of a card payment.
 ///
 /// Contains only non-confidential information.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CardPaymentDetails {
     /// The card payment's current state.
     pub status: Option<CardPaymentDetailsStatus>,

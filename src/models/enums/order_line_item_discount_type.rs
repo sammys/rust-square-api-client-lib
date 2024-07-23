@@ -1,9 +1,10 @@
 //! Model for OrderLineItemDiscountType enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates how the discount is applied to the associated line item or order.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum OrderLineItemDiscountType {
     /// Used for reporting only. The original transaction discount type is currently not supported

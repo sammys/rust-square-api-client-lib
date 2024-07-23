@@ -1,11 +1,12 @@
 //! Request body struct for the Search Team Members API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::SearchTeamMembersQuery;
 
 /// This is a model struct for SearchTeamMembersRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchTeamMembersRequest {
     /// The query parameters.
     pub query: Option<SearchTeamMembersQuery>,

@@ -1,5 +1,6 @@
 //! Model for GiftCardActivityRedeemStatus enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the status of a [gift card](GiftCard) redemption.
@@ -7,7 +8,7 @@ use serde::{Deserialize, Serialize};
 /// This status is relevant only for redemptions made from Square products (such as Square Point of
 /// Sale) because Square products use a two-state process. Gift cards redeemed using the Gift Card
 /// Activities API always have a `COMPLETED` status.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum GiftCardActivityRedeemStatus {
     /// The gift card redemption is pending. `PENDING` is a temporary status that applies when a

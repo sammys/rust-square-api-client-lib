@@ -1,9 +1,10 @@
 //! Model for OrderLineItemDiscountScope enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates whether this is a line-item or order-level discount.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum OrderLineItemDiscountScope {
     /// Used for reporting only. The original transaction discount scope is currently not supported

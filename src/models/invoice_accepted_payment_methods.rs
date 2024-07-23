@@ -1,9 +1,10 @@
 //! Model struct for InvoiceAcceptedPaymentMethods type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// The payment methods that customers can use to pay an invoice on the Square-hosted invoice page.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoiceAcceptedPaymentMethods {
     /// Indicates whether bank transfer payments are accepted. The default value is `false`.
     ///

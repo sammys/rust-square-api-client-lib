@@ -1,11 +1,12 @@
 //! Model struct for BatchRetrieveInventoryCountsResponse type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, InventoryCount};
 
 /// This is a model struct for BatchRetrieveInventoryCountsResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct BatchRetrieveInventoryCountsResponse {
     /// Any errors that occurred during the request.
     pub errors: Option<Vec<Error>>,

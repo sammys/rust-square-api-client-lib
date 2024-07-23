@@ -1,5 +1,6 @@
 //! Model struct for Payment type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -10,7 +11,7 @@ use super::{
 };
 
 /// Represents a payment processed by the Square API.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Payment {
     /// **Read only** A unique ID for the payment.
     pub id: Option<String>,

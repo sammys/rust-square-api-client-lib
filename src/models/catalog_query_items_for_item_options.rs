@@ -1,9 +1,10 @@
 //! Model struct for CatalogQueryItemsForItemOptions type.
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// The query filter to return the items containing the specified item option IDs.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogQueryItemsForItemOptions {
     /// A set of `CatalogItemOption` IDs to be used to find associated `CatalogItem`s. All Items
     /// that contain all of the given Item Options (in any order) will be returned.

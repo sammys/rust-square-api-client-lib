@@ -1,5 +1,6 @@
 //! Model struct for InvoicePaymentReminder type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::InvoicePaymentReminderStatus, DateTime};
@@ -7,7 +8,7 @@ use super::{enums::InvoicePaymentReminderStatus, DateTime};
 /// Describes a payment request reminder (automatic notification) that Square sends to the customer.
 ///
 /// You configure a reminder relative to the payment request `due_date`.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct InvoicePaymentReminder {
     /// The reminder message.
     ///

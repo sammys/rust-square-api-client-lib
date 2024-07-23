@@ -1,12 +1,13 @@
 //! Model for InvoiceRequestType enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the type of the payment request.
 ///
 /// For more information, see [Configuring payment
 /// requests](https://developer.squareup.com/docs/invoices-api/create-publish-invoices#payment-requests).
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InvoiceRequestType {
     /// A request for a balance payment. The balance amount is computed as follows:

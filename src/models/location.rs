@@ -1,5 +1,6 @@
 //! Model struct for Location type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -10,7 +11,7 @@ use super::{
 };
 
 /// Represents one of a business' [locations](https://developer.squareup.com/docs/locations-api).
-#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Location {
     /// **Read only** A short generated string of letters and numbers that uniquely identifies this
     /// location instance.

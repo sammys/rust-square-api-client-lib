@@ -1,9 +1,10 @@
 //! Model struct for UpdateCustomerRequest type
 
 use super::{Address, CustomerTaxIds};
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 /// This is a model struct for UpdateCustomerRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct UpdateCustomerRequest {
     /// The email address associated with the customer profile.
     pub email_address: Option<String>,

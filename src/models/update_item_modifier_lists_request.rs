@@ -1,9 +1,10 @@
 //! Request struct for the Update Item Modifier Lists API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model struct for UpdateItemModifierListsRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct UpdateItemModifierListsRequest {
     /// The IDs of the catalog items associated with the CatalogModifierList objects being updated.
     pub item_ids: Vec<String>,

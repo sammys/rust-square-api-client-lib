@@ -1,5 +1,6 @@
 //! Model struct for BankAccountPaymentDetails type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -12,7 +13,7 @@ use super::{
 };
 
 /// Additional details about BANK_ACCOUNT type payments.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct BankAccountPaymentDetails {
     /// The name of the bank associated with the bank account.
     pub bank_name: Option<String>,

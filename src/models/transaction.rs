@@ -1,5 +1,6 @@
 //! Model struct for Transaction type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{enums::TransactionProduct, Address, DateTime, Refund, Tender};
@@ -9,7 +10,7 @@ use super::{enums::TransactionProduct, Address, DateTime, Refund, Tender};
 ///
 /// The tenders field of this object lists all methods of payment used to pay in the transaction.
 #[deprecated]
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct Transaction {
     /// The transaction's unique ID, issued by Square payments servers.
     pub id: Option<String>,

@@ -1,8 +1,9 @@
 //! Model for SortCustomersField enum
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
-#[derive(Clone, Debug, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 
 /// Use one or more customer attributes as the sort key to sort searched customer profiles.

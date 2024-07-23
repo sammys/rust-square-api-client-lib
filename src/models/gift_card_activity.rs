@@ -1,5 +1,6 @@
 //! Model struct for GiftCardActivity type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -15,7 +16,7 @@ use super::{
 /// A gift card activity contains information about a specific activity type. For example, a
 /// `REDEEM` activity includes a `redeem_activity_details` field that contains information about the
 /// redemption.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct GiftCardActivity {
     /// **Read only** The Square-assigned ID of the gift card activity.
     pub id: Option<String>,

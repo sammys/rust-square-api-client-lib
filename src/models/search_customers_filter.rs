@@ -1,5 +1,6 @@
 //! Model struct for SearchCustomersFilter type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::{
@@ -9,7 +10,7 @@ use super::{
 /// Filtering criteria to use for a `SearchCustomers` request.
 ///
 /// Multiple filters are ANDed together.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct SearchCustomersFilter {
     /// Filter by [ email addresses]
     pub email_address: Option<SearchCustomersTextFilter>,

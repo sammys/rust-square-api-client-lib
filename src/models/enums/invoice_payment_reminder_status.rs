@@ -1,9 +1,10 @@
 //! Model for InvoicePaymentReminderStatus enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// The status of a payment request reminder.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InvoicePaymentReminderStatus {
     /// The reminder will be sent on the `relative_scheduled_date` (if the invoice is published).

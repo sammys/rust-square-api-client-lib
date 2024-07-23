@@ -1,11 +1,12 @@
 //! Model struct for CatalogCustomAttributeDefinitionSelectionConfig type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection;
 
 /// Configuration associated with `SELECTION`-type custom attribute definitions.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogCustomAttributeDefinitionSelectionConfig {
     /// The maximum number of selections that can be set. The maximum value for this attribute is
     /// 100. The default value is 1. The value can be modified, but changing the value will not

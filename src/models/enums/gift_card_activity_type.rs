@@ -1,9 +1,10 @@
 //! Model for GiftCardActivityType enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the type of the [gift card activity](GiftCardActivity).
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum GiftCardActivityType {
     /// Activated a gift card with a balance. When a gift card is activated, Square changes the gift

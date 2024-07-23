@@ -1,5 +1,6 @@
 //! Model struct for Tender type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -7,7 +8,7 @@ use super::{
 };
 
 /// Represents a tender (i.e., a method of payment) used in a Square transaction.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Tender {
     /// The tender's unique ID.
     pub id: Option<String>,

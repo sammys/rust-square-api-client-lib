@@ -1,11 +1,12 @@
 //! Model for Currency enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the associated currency for an amount of money.
 ///
 /// Values correspond to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum Currency {
     /// Unknown currency

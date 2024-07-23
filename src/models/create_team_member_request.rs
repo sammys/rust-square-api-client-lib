@@ -1,11 +1,12 @@
 //! Request body struct for the Create Team Member API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::TeamMember;
 
 /// This is a model struct for CreateTeamMemberRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateTeamMemberRequest {
     /// A unique string that identifies this `CreateTeamMember` request. Keys can be any valid
     /// string, but must be unique for every request. For more information, see

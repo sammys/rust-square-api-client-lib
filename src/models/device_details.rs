@@ -1,9 +1,10 @@
 //! Model struct for DeviceDetails type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Details about the device that took the payment.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct DeviceDetails {
     /// The Square-issued ID of the device.
     pub device_id: Option<String>,

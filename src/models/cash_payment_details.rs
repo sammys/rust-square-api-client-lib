@@ -1,5 +1,6 @@
 //! Model struct for CashPaymentDetails type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
@@ -8,7 +9,7 @@ use super::Money;
 ///
 /// Contains only non-confidential information. For more information, see [Take Cash
 /// Payments](https://developer.squareup.com/docs/payments-api/take-payments/cash-payments).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CashPaymentDetails {
     /// The amount and currency of the money supplied by the buyer.
     pub buyer_supplied_money: Option<Money>,

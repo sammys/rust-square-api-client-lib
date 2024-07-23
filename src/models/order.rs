@@ -2,6 +2,7 @@
 
 use std::collections::HashMap;
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{
@@ -17,7 +18,7 @@ use super::{
 ///
 /// All Connect V2 Transactions have all been converted to Orders including all associated
 /// itemization data.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct Order {
     /// **Read only** The order's unique ID.
     pub id: Option<String>,

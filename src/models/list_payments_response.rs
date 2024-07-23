@@ -1,11 +1,12 @@
 //! Model struct for ListPaymentsResponse type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Payment};
 
 /// This is a model struct for ListPaymentsResponse type
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ListPaymentsResponse {
     /// Information about errors encountered during the request.
     pub errors: Option<Vec<Error>>,

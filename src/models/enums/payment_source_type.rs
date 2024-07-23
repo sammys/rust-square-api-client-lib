@@ -1,12 +1,13 @@
 //! Model for PaymentSourceType enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Sources from which [Payment]s can be taken.
 ///
 /// For information about these payment source types, see [Take
 /// Payments](https://developer.squareup.com/docs/payments-api/take-payments).
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum PaymentSourceType {
     /// A seller can charge a card (a credit/debit card or Square gift card). For more information,

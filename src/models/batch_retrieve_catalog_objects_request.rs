@@ -1,9 +1,10 @@
 //! Request struct for the Batch Retrieve Catalog Objects API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 /// This is a model class for BatchRetrieveCatalogObjectsRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct BatchRetrieveCatalogObjectsRequest {
     /// The IDs of the CatalogObjects to be retrieved.
     pub object_ids: Vec<String>,

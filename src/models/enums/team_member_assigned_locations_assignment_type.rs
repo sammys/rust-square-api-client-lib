@@ -1,9 +1,10 @@
 //! Model for TeamMemberAssignedLocationsAssignmentType enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Enumerates the possible assignment types that the team member can have.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum TeamMemberAssignedLocationsAssignmentType {
     /// The team member is assigned to all current and future locations. The `location_ids` field is

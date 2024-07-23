@@ -1,11 +1,12 @@
 //! Model struct for AchDetails type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::enums::AchDetailsAccountType;
 
 /// ACH-specific details about `BANK_ACCOUNT` type payments with the `transfer_type` of `ACH`.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct AchDetails {
     /// The routing number for the bank account.
     pub routing_number: Option<String>,

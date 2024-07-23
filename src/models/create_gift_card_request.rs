@@ -1,11 +1,12 @@
 //! Model struct for CreateGiftCardRequest type
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::GiftCard;
 
 /// This is a model struct for CreateGiftCardRequest type
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateGiftCardRequest {
     /// A unique identifier for this request, used to ensure idempotency. For more information, see
     /// [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).

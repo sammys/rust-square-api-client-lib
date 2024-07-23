@@ -1,11 +1,12 @@
 //! Model for Language enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// A language in [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A). For more
 /// information, see [Location language
 /// code](https://developer.squareup.com/docs/locations-api#location-language-code).
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub enum Language {
     /// English
     #[serde(rename = "en")]

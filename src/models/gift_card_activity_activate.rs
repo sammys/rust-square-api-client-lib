@@ -1,11 +1,12 @@
 //! Model struct for GiftCardActivityActivate type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
 
 /// Represents details about an `ACTIVATE` [gift card activity type](GiftCardActivityType).
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct GiftCardActivityActivate {
     /// The amount added to the gift card. This value is a positive integer.
     ///

@@ -1,9 +1,10 @@
 //! Model for TeamMemberStatus enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Enumerates the possible statuses the team member can have within a business.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum TeamMemberStatus {
     /// The team member can sign in to Point of Sale and the Seller Dashboard.

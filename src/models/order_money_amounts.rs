@@ -1,11 +1,12 @@
 //! Model struct for OrderMoneyAmounts type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
 
 /// A collection of various money amounts.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderMoneyAmounts {
     /// The total money.
     pub total_money: Option<Money>,

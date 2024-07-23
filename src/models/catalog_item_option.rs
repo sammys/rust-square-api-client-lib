@@ -1,11 +1,12 @@
 //! Model struct for CatalogItemOption type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::CatalogObject;
 
 /// A group of variations for a `CatalogItem`.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogItemOption {
     /// The item option's display name for the seller. Must be unique across all item options. This
     /// is a searchable attribute for use in applicable query filters.

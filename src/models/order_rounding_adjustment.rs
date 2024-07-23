@@ -1,5 +1,6 @@
 //! Model struct for OrderRoundingAdjustment type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
@@ -8,7 +9,7 @@ use super::Money;
 ///
 /// Commonly used to apply cash rounding when the minimum unit of the account is smaller than the
 /// lowest physical denomination of the currency.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct OrderRoundingAdjustment {
     /// A unique ID that identifies the rounding adjustment only within this order.
     pub uid: Option<String>,

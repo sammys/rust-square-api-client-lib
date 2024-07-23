@@ -1,5 +1,6 @@
 //! Model struct for CustomerSegment type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::DateTime;
@@ -8,7 +9,7 @@ use super::DateTime;
 ///
 /// Segments (also known as Smart Groups) are defined and created within the Customer Directory in
 /// the Square Seller Dashboard or Point of Sale.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CustomerSegment {
     /// **Read only** A unique Square-generated ID for the segment.
     pub id: Option<String>,

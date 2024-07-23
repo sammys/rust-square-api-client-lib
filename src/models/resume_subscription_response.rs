@@ -1,11 +1,12 @@
 //! Response body struct for the Resume Subscription API
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Subscription, SubscriptionAction};
 
 /// This is the model struct for the ResumeSubscriptionResponse type.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct ResumeSubscriptionResponse {
     /// Errors encountered during the request.
     pub errors: Option<Vec<Error>>,

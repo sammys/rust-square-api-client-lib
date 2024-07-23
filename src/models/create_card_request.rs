@@ -1,11 +1,12 @@
 //! Request struct for the Create Card API
 
+use crate::{Hydrate, Reconcile};
 use serde::Serialize;
 
 use super::Card;
 
 /// This is a model class for CreateCardRequest type.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CreateCardRequest {
     /// A unique string that identifies this CreateCard request. Keys can be any valid string and
     /// must be unique for every request. Max: 45 characters See [Idempotency

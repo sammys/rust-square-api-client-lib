@@ -1,11 +1,12 @@
 //! Model struct for DisableCardResponse type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Card};
 
 /// This is a model struct for DisableCardResponse type
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct DisableCardResponse {
     /// Information on errors encountered during the request.
     pub errors: Option<Vec<Error>>,

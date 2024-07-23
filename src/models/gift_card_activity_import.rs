@@ -1,5 +1,6 @@
 //! Model struct for GiftCardActivityImport type
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::Money;
@@ -8,7 +9,7 @@ use super::Money;
 ///
 /// This activity type is used when Square imports a third-party gift card, in which case the
 /// `gan_source` of the gift card is set to `OTHER`.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct GiftCardActivityImport {
     /// The balance amount on the imported gift card.
     pub amount_money: Money,

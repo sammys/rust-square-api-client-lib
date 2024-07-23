@@ -1,11 +1,12 @@
 //! Model struct for CatalogQuickAmount type.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 use super::{enums::CatalogQuickAmountType, Money};
 
 /// Represents a Quick Amount in the Catalog.
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 pub struct CatalogQuickAmount {
     /// Represents the type of the Quick Amount.
     pub r#type: CatalogQuickAmountType,

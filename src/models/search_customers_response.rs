@@ -1,11 +1,12 @@
 //! Model struct for SearchCustomersResponse type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::{errors::Error, Customer};
 
 /// This is a model struct for SearchCustomersResponse type
-#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct SearchCustomersResponse {
     /// A list of [Customer] objects that match the query conditions. The list is populated only if
     /// `return_entries` is set to `false` in the request.

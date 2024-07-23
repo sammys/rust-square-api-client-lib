@@ -1,9 +1,10 @@
 //! Model for InvoiceAutomaticPaymentSource enum.
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Indicates the automatic payment method for an invoice payment request.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum InvoiceAutomaticPaymentSource {
     /// An automatic payment is not configured for the payment request.

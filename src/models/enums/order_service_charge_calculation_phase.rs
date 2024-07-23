@@ -1,5 +1,6 @@
 //! Model for OrderServiceChargeCalculationPhase enum
 
+use crate::{Hydrate, Reconcile};
 use serde::{Deserialize, Serialize};
 
 /// Represents a phase in the process of calculating order totals.
@@ -8,7 +9,7 @@ use serde::{Deserialize, Serialize};
 ///
 /// [Read more about how order totals are
 /// calculated.](https://developer.squareup.com/docs/orders-api/how-it-works#how-totals-are-calculated)
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum OrderServiceChargeCalculationPhase {
     /// The service charge is applied after discounts, but before taxes.

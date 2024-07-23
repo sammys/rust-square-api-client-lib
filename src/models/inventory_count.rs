@@ -1,11 +1,12 @@
 //! Model struct for InventoryCount type
 
+use crate::{Hydrate, Reconcile};
 use serde::Deserialize;
 
 use super::enums::InventoryState;
 
 /// The current calculated inventory counts for the requested object and locations.
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Debug, Deserialize, Eq, Hydrate, PartialEq, Reconcile)]
 pub struct InventoryCount {
     /// Read only An RFC 3339-formatted timestamp that indicates when the most recent physical
     /// count or adjustment affecting the estimated count is received.
